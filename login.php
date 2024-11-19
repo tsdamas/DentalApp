@@ -8,13 +8,12 @@
         <link rel="stylesheet" href="stylesheet.css">
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col">
+        <div class="container-fluid vh-100 d-flex">
+            <div class="row w-100 align-items-center">
+                <div class="col-6">
                     
                 </div>
-                <div class="col">
-                <div class="login-container">
+                <div class="col-6 col-xs-12 d-flex justify-content-center login-container">
                     <form method="post" action="dashboard.php">
                         <h3> Login Form </h3>
                         <br>
@@ -28,7 +27,6 @@
                         </div>
                         <button type="submit" name="submit" value="login" class="btn btn-primary">Submit</button>
                     </form>
-                </div>
                 </div>
             </div>
         </div>
