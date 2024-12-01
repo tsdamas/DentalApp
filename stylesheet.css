@@ -2,7 +2,7 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-.login-container{
+/*.login-container{
     border: 1px solid black;
 
 }
@@ -10,19 +10,19 @@ body {
 .row{
     border: 1px solid black;
     
-}
+}*/
 
-video{
-object-fit: cover;
+/*video{
+    object-fit: cover;
     position: absolute;
-        width: 100%;
+    width: 100%;
     height: auto;
-    left: 50%; /* % of surrounding element */
+    left: 50%;  % of surrounding element 
     top: 50%;
-    transform: translate(-50%, -50%); /* % of current element */
+    transform: translate(-50%, -50%);  % of current element 
 }
 
 .col-6{
     height: 100vh;
     overflow: hidden;
-}
+}*/

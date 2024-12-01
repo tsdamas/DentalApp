@@ -15,9 +15,9 @@
                         <source src="./images/login-video.mp4" type="video/mp4">
                     </video>-->
 <!--<div class="embed-responsive embed-responsive-1by1">-->
-                    <video class="w-100 h-100" autoplay>
+<!--                    <video class="h-100" autoplay>
                             <source src="./images/login-video.mp4" type="video/mp4">
-                    </video>
+                    </video>-->
                     <!--</div>-->
                 </div>
                 <div class="col-6 col-xs-12 d-flex justify-content-center login-container">
@@ -30,7 +30,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password-label" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" name="password" class="form-control" id="password-login-field">
                         </div>
                         <button type="submit" name="submit" value="login" class="btn btn-primary">Submit</button>
                     </form>
