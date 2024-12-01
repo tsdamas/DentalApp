@@ -9,7 +9,7 @@ if ((!filter_input(INPUT_POST, 'username'))
 }
 
 //connect to server and select database
-
+$mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
 
 //For more info about mysqli functions, go to the site below:
 //http://www.w3schools.com/php/php_ref_mysqli.asp

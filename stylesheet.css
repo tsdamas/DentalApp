@@ -2,15 +2,23 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-/*.login-container{
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;  /* Limit the form width */
     border: 1px solid black;
 
 }
 
+
 .row{
     border: 1px solid black;
     
-}*/
+}
 
 /*video{
     object-fit: cover;
@@ -22,7 +30,10 @@ body {
     transform: translate(-50%, -50%);  % of current element 
 }
 
+*/
 .col-6{
     height: 100vh;
     overflow: hidden;
-}*/
+    border: 1px solid black;
+
+}

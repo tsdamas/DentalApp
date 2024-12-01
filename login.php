@@ -20,7 +20,8 @@
                     </video>-->
                     <!--</div>-->
                 </div>
-                <div class="col-6 col-xs-12 d-flex justify-content-center login-container">
+                <div class="col-6 col-xs-12 d-flex justify-content-center">
+                    <div class="login-container">
                     <form method="post" action="dashboard.php">
                         <h3> Login Form </h3>
                         <br>
@@ -34,6 +35,7 @@
                         </div>
                         <button type="submit" name="submit" value="login" class="btn btn-primary">Submit</button>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
