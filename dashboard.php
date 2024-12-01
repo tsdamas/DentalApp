@@ -56,10 +56,15 @@ if (mysqli_num_rows($result) == 1) {
 ?>
 <html>
 <head>
-<title>User Login</title>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Dashboard</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="./stylesheet.css">
+    </head>
 <body>
-<?php echo "$display_block"; ?>
+
 </body>
 </html>
 

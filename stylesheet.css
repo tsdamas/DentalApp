@@ -6,11 +6,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     padding: 20px;
     width: 100%;
     max-width: 400px;  /* Limit the form width */
-    border: 1px solid black;
+    
 
 }
 
