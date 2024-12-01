@@ -44,10 +44,7 @@ if (mysqli_num_rows($result) == 1) {
         
 	//create display string
 	$display_block = "
-        <body style='background-color:bisque'>
-	<p>".$f_name." ".$l_name." is authorized!</p>
-	<p>Authorized Users' Menu:</p>
-        </body>";
+	<p>".$f_name." ".$l_name." is authorized!</p>";
 } else {
 	//redirect back to login form if not authorized
 	header("Location: login.php");
@@ -64,6 +61,22 @@ if (mysqli_num_rows($result) == 1) {
         <link rel="stylesheet" href="./stylesheet.css">
     </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-dental" href="#">Dental#</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+        <a class="nav-link" href="patients.php">Patients</a>
+        <a class="nav-link" href="appoinments.php">Appointments</a>
+      </div>
+    </div>
+  </div>
+</nav>
+    <?php echo "$display_block"; ?>
 
 </body>
 </html>
