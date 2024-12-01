@@ -33,10 +33,47 @@ if (mysqli_num_rows($result) == 1) {
 	//set authorization cookie using curent Session ID
 	setcookie("auth", session_id(), time()+60*30, "/", "", 0);
         
+        //Get number of appointments 
+        $get_number_app = "SELECT COUNT(*) AS Total FROM L4_Appointments WHERE app_date = '2024-11-04'";
         
-	//create display string
-	$display_block = "
-	<p>".$f_name." ".$l_name." is authorized!</p>";
+        $number_app_sql = mysqli_query($mysqli, $get_number_app) or die(mysqli_error($mysqli));
+        
+        if (mysqli_num_rows($number_app_sql) > 0) {
+            	while ($info = mysqli_fetch_array($number_app_sql)) {
+                        $num_app = stripslashes($info['Total']);
+                }
+        }
+        
+        //Get number of procedures
+        $get_number_proc_sql = "SELECT COUNT(*) AS Total_Pros FROM L4_App_Pros ap, L4_Appointments a WHERE ap.app_id = a.id and app_date = '2024-11-04'";
+        $get_number_proc_query = mysqli_query($mysqli, $get_number_proc_sql) or die(mysqli_error($mysqli));
+        
+        if (mysqli_num_rows($get_number_proc_query) > 0) {
+            	while ($info = mysqli_fetch_array($get_number_proc_query)) {
+                        $get_number_proc = stripslashes($info['Total_Pros']);
+                }
+        }
+        
+        //Get today's appointments
+        $get_proc_sql = "SELECT a.id AS id, CONCAT(p.fname, ' ', p.lname) AS patient_name, d.name AS dentist_name, roomNo"
+        . " FROM L4_Appointments a, L4_Dentists d, L4_Patients p WHERE a.pat_id = p.id and a.den_id = d.id and app_date = '2024-11-04'";
+        
+        $get_proc_query = mysqli_query($mysqli, $get_proc_sql) or die(mysqli_error($mysqli));
+
+
+        $row = '';
+        //get the number of rows in the result set; should be 1 if a match
+        if (mysqli_num_rows($get_proc_query) > 0) {
+
+	//if authorized, get the values of the columns
+	while ($info = mysqli_fetch_array($get_proc_query)) {
+		$row .= '<tr>' .'<td>'.$info['id'].'</td>'.
+                        '<td>'.$info['patient_name'].'</td>'.
+                        '<td>'.$info['dentist_name'].'</td>'.
+                        '<td>'.$info['roomNo'].'</td></tr>';
+	}
+        }
+        
 } else {
 	//redirect back to login form if not authorized
 	header("Location: login.php");
@@ -74,27 +111,37 @@ if (mysqli_num_rows($result) == 1) {
         <h4>Today's Appointments</h4>
         <div class="row">
             <div class="col-lg-6">
-                <p><?php echo "$display_block"; ?></p>
+                <p><?php echo "$num_app"; ?> Appointments</p>
                 
             </div>
             <div class="col-lg-6">
-                <p><?php echo "$display_block"; ?></p>
+                <p><?php echo "$get_number_proc"; ?> Procedures</p>
             </div>
-            
         </div>
-        
     </div>
     <div class="col-lg-6 col-xs-12">
       2 of 2
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      1 of 3
+    <div class="col-12">
+      <table class="table table-light table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Appointment Id</th>
+      <th scope="col">Patient Name</th>
+      <th scope="col">Dentist Name</th>
+      <th scope="col">Room Number</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+      <?php echo "$row"; ?>
+      
+  </tbody>
+</table>
     </div>
   </div>
-</div>
-    <?php echo "$display_block"; ?>
+    </div>
 
 </body>
 </html>
