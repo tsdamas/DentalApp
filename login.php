@@ -11,7 +11,14 @@
         <div class="container-fluid vh-100 d-flex">
             <div class="row w-100 align-items-center">
                 <div class="col-6">
-                    
+<!--                    <video width="320" height="240" controls>
+                        <source src="./images/login-video.mp4" type="video/mp4">
+                    </video>-->
+<!--<div class="embed-responsive embed-responsive-1by1">-->
+                    <video class="w-100 h-100" autoplay>
+                            <source src="./images/login-video.mp4" type="video/mp4">
+                    </video>
+                    <!--</div>-->
                 </div>
                 <div class="col-6 col-xs-12 d-flex justify-content-center login-container">
                     <form method="post" action="dashboard.php">
