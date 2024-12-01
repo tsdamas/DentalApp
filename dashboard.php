@@ -11,14 +11,6 @@ if ((!filter_input(INPUT_POST, 'username'))
 //connect to server and select database
 $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
 
-//For more info about mysqli functions, go to the site below:
-//http://www.w3schools.com/php/php_ref_mysqli.asp
-
-/* create and issue the query
-$sql = "SELECT f_name, l_name FROM auth_users WHERE username = '".$_POST["username"].
-        "' AND password = SHA1('".$_POST["password"]."')";
-*/
-
 //create and issue the query
 $targetname = filter_input(INPUT_POST, 'username');
 $targetpasswd = filter_input(INPUT_POST, 'password');
@@ -76,6 +68,32 @@ if (mysqli_num_rows($result) == 1) {
     </div>
   </div>
 </nav>
+    <div class="container text-center">
+  <div class="row">
+    <div class="col-lg-6 col-xs-12">
+        <h4>Today's Appointments</h4>
+        <div class="row">
+            <div class="col-lg-6">
+                <p><?php echo "$display_block"; ?></p>
+                
+            </div>
+            <div class="col-lg-6">
+                <p><?php echo "$display_block"; ?></p>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div class="col-lg-6 col-xs-12">
+      2 of 2
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      1 of 3
+    </div>
+  </div>
+</div>
     <?php echo "$display_block"; ?>
 
 </body>
