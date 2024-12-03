@@ -11,26 +11,25 @@
         <div class="container-fluid vh-100 d-flex">
             <div class="row w-100 align-items-center">
                 <div class="col-6 p-0 video-container">
-                    <video class="video object-fit-cover" width= "900" height="800" autoplay>
+                    <video class="video object-fit-cover" width= "900" height="780" autoplay>
                             <source src="./images/login-video.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="col-6 col-xs-12 justify-content-center d-flex">
+                <div class="col-6 col-xs-12 justify-content-center">
                     <div class="row">
                     <nav class="navbar">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="#">
-                                <img src="./images/dental_logo.png" alt="Logo" width="50" height="50" class="align-text-top">
+                            <a class="navbar-brand fs-6" href="#">
+                                <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                                 DentalHash
                             </a>
                         </div>
                     </nav>
                     </div>
-                        <div class="row d-flex">
-                    
+                    <div class="row d-flex" id="login-row">
                     <div class="login-container">                     
                     <form method="post" action="dashboard.php">
-                        <h3> Login Form </h3>
+                        <h3> Login </h3>
                         <br>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">@</span>
