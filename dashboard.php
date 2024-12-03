@@ -140,7 +140,11 @@ if (mysqli_num_rows($result) == 1) {
     </div>
   </div>
   <div class="row">
-    <div class="col-12">
+
+    <div class="col-12 rounded shadow-sm p-3 mt-5 mb-5 bg-white">
+        <div class="col-lg-6 col-sm-6 mb-2" id="app-list-title">
+            <h6 class="font-weight-bold">Today's Appointments List</h6>
+        </div>
       <table class="table table-light table-striped table-hover">
   <thead>
     <tr>

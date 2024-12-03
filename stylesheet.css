@@ -8,17 +8,17 @@
 }
 
 
-/*video{
+video{
     object-fit: cover;
     position: absolute;
     width: 100%;
     height: auto;
-    left: 50%;  % of surrounding element 
+    left: 50%; 
     top: 50%;
-    transform: translate(-50%, -50%);  % of current element 
+    transform: translate(-50%, -50%); 
 }
 
-*/
+
 .col-6{
     height: 100vh;
     overflow: hidden;
