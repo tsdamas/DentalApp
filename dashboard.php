@@ -92,7 +92,10 @@ if (mysqli_num_rows($result) == 1) {
 <body class="bg-body-tertiary">
     <nav class="navbar navbar-expand-lg bg-white">
   <div class="container-fluid">
-    <a class="navbar-dental" href="#">Dental#</a>
+        <a class="navbar-brand fs-6" href="#">
+            <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
+                DentalHash
+        </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -101,6 +104,7 @@ if (mysqli_num_rows($result) == 1) {
         <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
         <a class="nav-link" href="patients.php">Patients</a>
         <a class="nav-link" href="appoinments.php">Appointments</a>
+        <a class="nav-link" href="login.php">Logout</a>
       </div>
     </div>
   </div>
