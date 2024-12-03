@@ -7,16 +7,28 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="./stylesheet.css">
     </head>
-    <body>
+    <body class="bg-body-tertiary">
         <div class="container-fluid vh-100 d-flex">
-            <div class="row  border border-primary w-100 align-items-center">
-                <div class="col-6 p-0">
-                    <video class="video object-fit-cover" width="900" height="800" autoplay>
+            <div class="row w-100 align-items-center">
+                <div class="col-6 p-0 video-container">
+                    <video class="video object-fit-cover" width= "900" height="800" autoplay>
                             <source src="./images/login-video.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="col-6 col-xs-12 d-flex justify-content-center">
-                    <div class="login-container">
+                <div class="col-6 col-xs-12 justify-content-center d-flex">
+                    <div class="row">
+                    <nav class="navbar">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">
+                                <img src="./images/dental_logo.png" alt="Logo" width="50" height="50" class="align-text-top">
+                                DentalHash
+                            </a>
+                        </div>
+                    </nav>
+                    </div>
+                        <div class="row d-flex">
+                    
+                    <div class="login-container">                     
                     <form method="post" action="dashboard.php">
                         <h3> Login Form </h3>
                         <br>
@@ -32,6 +44,7 @@
                     </form>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
