@@ -11,11 +11,9 @@
         <div class="container-fluid vh-100 d-flex">
             <div class="row  border border-primary w-100 align-items-center">
                 <div class="col-6 p-0">
-<!--                    <div class="h-100 embed-responsive">-->
-                    <video class="video object-fit-cover" width="900"height="800" autoplay>
+                    <video class="video object-fit-cover" width="900" height="800" autoplay>
                             <source src="./images/login-video.mp4" type="video/mp4">
                     </video>
-<!--                    </div>-->
                 </div>
                 <div class="col-6 col-xs-12 d-flex justify-content-center">
                     <div class="login-container">
