@@ -60,11 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                             <div class="col">
                                 <label for="first-name" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="first-name" name="first-name" placeholder="First Name" pattern="[A-Za-z]+" maxlength="25" required>
+                                <input type="text" class="form-control" id="first-name" name="first-name" placeholder="First Name" pattern="[A-Za-z]+" title="Please enter letters only." maxlength="25" required>
                             </div>
                             <div class="col">
                                 <label for="last-name" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Last Name" pattern="[A-Za-z]+" maxlength="30" required>
+                                <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Last Name" pattern="[A-Za-z]+" title="Please enter letters only." maxlength="30" required>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-danger w-100">Remove Patient</button>
