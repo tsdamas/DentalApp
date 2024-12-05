@@ -13,6 +13,8 @@ $query = "
         L4_Patients p
     ON
         a.Pat_ID = p.ID
+    WHERE
+        a.app_date >= CURDATE()
     ORDER BY
         a.app_date ASC
 ";
@@ -60,6 +62,7 @@ $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Appointment Date</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
