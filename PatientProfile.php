@@ -33,7 +33,7 @@ $appointments_query = "
     LEFT JOIN L4_App_Pros ap ON a.ID = ap.App_ID
     LEFT JOIN L4_Procedures p ON ap.Pro_ID = p.ID
     WHERE a.Pat_ID = $patient_id
-    ORDER BY a.app_date ASC
+    ORDER BY a.app_date DESC
 ";
 
 $result2 = mysqli_query($mysqli, $appointments_query);
