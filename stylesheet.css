@@ -1,0 +1,27 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;  /* Limit the form width */
+}
+
+.error {color: #FF0000;}
+
+
+.video-container{
+    overflow: hidden;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+}
+
+#login-row {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    height: 100vh;            
+}
