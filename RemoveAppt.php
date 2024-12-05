@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_query($mysqli, $deleteAppointmentQuery)) {
             echo "<script>
                     alert('Appointment successfully removed!');
-                    window.location.href = 'Dashboard.php';
+                    window.location.href = 'ManageAppts.php';
                   </script>";
         } else {
             echo "<script>
