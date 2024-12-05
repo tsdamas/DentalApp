@@ -8,7 +8,7 @@ if (empty($_SESSION['username'])) {
 } else {
         //this should never go to prod in a real secenario and could be done in a better and more secure way, 
         //like create environment variables on the server
-            $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
+        $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
         
         $name = $_SESSION['f_name'];
         
@@ -65,9 +65,9 @@ if (empty($_SESSION['username'])) {
         <link rel="stylesheet" href="./stylesheet.css">
     </head>
 <body class="bg-body-tertiary">
-    <nav class="navbar navbar-expand-lg bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
   <div class="container-fluid">
-        <a class="navbar-brand fs-6" href="#">
+        <a class="navbar-brand fs-6" href="Dashboard.php">
             <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                 DentalHash
         </a>

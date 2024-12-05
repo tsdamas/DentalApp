@@ -33,7 +33,7 @@ $appointments_query = "
     LEFT JOIN L4_App_Pros ap ON a.ID = ap.App_ID
     LEFT JOIN L4_Procedures p ON ap.Pro_ID = p.ID
     WHERE a.Pat_ID = $patient_id
-    ORDER BY a.app_date ASC
+    ORDER BY a.app_date DESC
 ";
 
 $result2 = mysqli_query($mysqli, $appointments_query);
@@ -49,7 +49,7 @@ $result2 = mysqli_query($mysqli, $appointments_query);
     </head>
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand fs-6" href="Dashboard.php">
                     <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                     DentalHash

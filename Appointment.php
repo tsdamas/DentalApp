@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Combine address
     $address = $streetNumber . " " . $streetName . ", " . $city;
-    echo $patientID, $firstName, $lastName, $address, $phoneNumber;
     // Insert new patient
     $insertPatientQuery = "INSERT INTO L4_Patients (ID, fname, lname, address, phone, Ins_ID) VALUES ($patientID, '$firstName', '$lastName', '$address', '$phoneNumber', 2)";
 
@@ -36,10 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
    
 
-    $rowCountQuery2 = "SELECT COUNT(*) AS total FROM L4_Appointments";
+    $rowCountQuery2 = "SELECT MAX(ID) AS total FROM L4_Appointments";
     $resultRow2 = mysqli_query($mysqli, $rowCountQuery2) or die(mysqli_error($mysqli));
     $rowCountData2 = mysqli_fetch_assoc($resultRow2);
-    $appID = $rowCountData2['total'] + 1500;
+    $appID = $rowCountData2['total'] + 1;
     $dentistID = $dentist['ID'];
 
     // Create appointment
@@ -48,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_query($mysqli, $insertAppointmentQuery)) {
         echo "<script>
                 alert('Appointment successfully created!');
-                window.location.href = 'Appointment.php';
+                window.location.href = 'ManageAppts.php';
               </script>";
     } else {
         echo "<script>
@@ -70,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </head>
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand fs-6" href="Dashboard.php">
                     <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                     DentalHash

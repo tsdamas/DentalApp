@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container-fluid vh-100 d-flex">
             <div class="row w-100 align-items-center">
                 <div class="col-6 p-0 video-container">
-                    <video class="video object-fit-cover" width= "900" height="780" autoplay>
+                    <video class="video object-fit-cover" width= "900" height="780" autoplay muted loop>
                             <source src="./images/login-video.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="row">
                     <nav class="navbar">
                         <div class="container-fluid">
-                            <a class="navbar-brand fs-6" href="#">
+                            <a class="navbar-brand fs-6" href="Login.php">
                                 <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                                 DentalHash
                             </a>
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <?php echo $credentialsErr; ?>
                         </div>
                         <button type="submit" name="submit" value="login" class="btn btn-primary">Submit</button>
-                        <a href="password.php" class=btn btn-danger">Forgot Password?</a>
+                        <a href="Password.php" class=btn btn-danger">Forgot Password?</a>
                     </form>
                         
                     </div>

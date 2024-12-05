@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_query($mysqli, $deleteAppointmentQuery)) {
             echo "<script>
                     alert('Appointment successfully removed!');
-                    window.location.href = 'Dashboard.php';
+                    window.location.href = 'ManageAppts.php';
                   </script>";
         } else {
             echo "<script>
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </head>
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand fs-6" href="Dashboard.php">
                     <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                     DentalHash

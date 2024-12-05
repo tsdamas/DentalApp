@@ -35,11 +35,11 @@ $totalPatients = mysqli_num_rows($result);
 </head>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand fs-6" href="Dashboard.php">
-                                <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
+                    <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                                 DentalHash
-                            </a>
+            </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="Dashboard.php">Dashboard</a></li>
@@ -87,5 +87,6 @@ $totalPatients = mysqli_num_rows($result);
             </table>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
