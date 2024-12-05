@@ -44,7 +44,8 @@ $totalPatients = mysqli_num_rows($result);
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="Dashboard.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="patients.php">Patients</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Appointment.php">Appointments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ManageAppts.php">Appointments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Logout</a></li>
                 </ul>
             </div>
         </div>

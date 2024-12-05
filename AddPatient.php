@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li class="nav-item"><a class="nav-link" id="dashboard-link" href="#">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" id="patients-link" href="#">Patients</a></li>
                         <li class="nav-item"><a class="nav-link" id="appointments-link" href="#">Appointments</a></li>
+                        <li class="nav-item"><a class="nav-link" id="logout-link" href="#">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -127,7 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 window.location.href = 'patients.php';
             };
             document.getElementById('appointments-link').onclick = function () {
-                window.location.href = 'Appointment.php';
+                window.location.href = 'ManageAppts.php';
+            };
+            document.getElementById('logout-link').onclick = function () {
+                window.location.href = 'login.php';
             };
         </script>
     </body>
