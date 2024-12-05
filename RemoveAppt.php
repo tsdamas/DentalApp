@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8 bg-white p-5 shadow-sm rounded">
-                    <h3 class="text-center mb-4 text-danger">Remove an Appointment</h3>
+                    <h3 class="text-center mb-4">Remove Appointment</h3>
                     <form method="POST" action="">
                         <div class="row mb-3">
                             <div class="col">
