@@ -30,7 +30,7 @@ $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand fs-6" href="#">
+                <a class="navbar-brand fs-6" href="dashboard.php">
                     <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                     DentalHash
                 </a>
@@ -69,6 +69,17 @@ $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
                                     <td><?php echo htmlspecialchars($row['FirstName']); ?></td>
                                     <td><?php echo htmlspecialchars($row['LastName']); ?></td>
                                     <td><?php echo htmlspecialchars($row['AppointmentDate']); ?></td>
+                                    <td>
+                                        <?php
+                                        $appointmentDate = strtotime($row['AppointmentDate']);
+                                        $currentDate = strtotime('now');
+                                        $dateDiff = ($appointmentDate - $currentDate) / (60 * 60 * 24);
+                                        // If appointment is within 30 days, show the button
+                                        if ($dateDiff >= 0 && $dateDiff <= 30) {
+                                            echo '<button class="btn btn-primary" onclick="sendReminder()">Send Reminder</button>';
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                             <?php endwhile; ?>
                         </tbody>
@@ -89,6 +100,9 @@ $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
             document.getElementById('logout-link').onclick = function () {
                 window.location.href = 'login.php';
             };
+            function sendReminder() {
+                alert("Appointment Reminder has been sent out.");
+            } 
         </script>
     </body>
 </html>

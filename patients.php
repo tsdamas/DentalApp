@@ -36,7 +36,7 @@ $totalPatients = mysqli_num_rows($result);
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand fs-6" href="login.php">
+            <a class="navbar-brand fs-6" href="dashboard.php">
                                 <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                                 DentalHash
                             </a>
@@ -75,7 +75,7 @@ $totalPatients = mysqli_num_rows($result);
                 <tbody>
                     <?php while ($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($row['ID']); ?></td>
+                            <td><a href="PatientProfile.php?patient_id=<?php echo $row['ID']; ?>"><?php echo htmlspecialchars($row['ID']); ?></a></td>
                             <td><?php echo htmlspecialchars($row['fname']); ?></td>
                             <td><?php echo htmlspecialchars($row['lname']); ?></td>
                             <td><?php echo htmlspecialchars($row['address']); ?></td>
@@ -89,9 +89,3 @@ $totalPatients = mysqli_num_rows($result);
     </div>
 </body>
 </html>
-
-<?php
-// Free result set and close connection
-mysqli_free_result($result);
-mysqli_close($mysqli);
-?>
