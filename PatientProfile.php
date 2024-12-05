@@ -49,17 +49,17 @@ $result2 = mysqli_query($mysqli, $appointments_query);
     </head>
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand fs-6" href="dashboard.php">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-6" href="Dashboard.php">
                     <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                     DentalHash
                 </a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="Dashboard.php">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="patients.php">Patients</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Patients.php">Patients</a></li>
                         <li class="nav-item"><a class="nav-link" href="ManageAppts.php">Appointments</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Login.php">Logout</a></li>
                     </ul>
                 </div>
             </div>

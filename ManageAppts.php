@@ -31,8 +31,8 @@ $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
     </head>
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand fs-6" href="dashboard.php">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-6" href="Dashboard.php">
                     <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                     DentalHash
                 </a>
@@ -62,7 +62,7 @@ $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Appointment Date</th>
-                                
+                                <th> Appointment Reminder</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,13 +95,13 @@ $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
                 window.location.href = 'Dashboard.php';
             };
             document.getElementById('patients-link').onclick = function () {
-                window.location.href = 'patients.php';
+                window.location.href = 'Patients.php';
             };
             document.getElementById('appointments-link').onclick = function () {
                 window.location.href = 'ManageAppts.php';
             };
             document.getElementById('logout-link').onclick = function () {
-                window.location.href = 'login.php';
+                window.location.href = 'Login.php';
             };
             function sendReminder() {
                 alert("Appointment Reminder has been sent out.");

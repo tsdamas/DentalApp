@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Combine address
     $address = $streetNumber . " " . $streetName . ", " . $city;
-    
     // Insert new patient
     $insertPatientQuery = "INSERT INTO L4_Patients (ID, fname, lname, address, phone, Ins_ID) VALUES ($patientID, '$firstName', '$lastName', '$address', '$phoneNumber', 2)";
 
@@ -70,8 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </head>
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand fs-6" href="dashboard.php">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-6" href="Dashboard.php">
                     <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                     DentalHash
                 </a>
@@ -162,13 +161,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 window.location.href = 'Dashboard.php';
             };
             document.getElementById('patients-link').onclick = function () {
-                window.location.href = 'patients.php';
+                window.location.href = 'Patients.php';
             };
             document.getElementById('appointments-link').onclick = function () {
                 window.location.href = 'ManageAppts.php';
             };
             document.getElementById('logout-link').onclick = function () {
-                window.location.href = 'login.php';
+                window.location.href = 'Login.php';
             };
         </script>
     </body>
