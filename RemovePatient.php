@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_query($mysqli, $deleteQuery)) {
         echo "<script>
                 alert('Patient successfully removed!');
-                window.location.href = 'patients.php';
+                window.location.href = 'Patients.php';
               </script>";
     } else {
         echo "<script>
@@ -78,13 +78,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 window.location.href = 'Dashboard.php';
             };
             document.getElementById('patients-link').onclick = function () {
-                window.location.href = 'patients.php';
+                window.location.href = 'Patients.php';
             };
             document.getElementById('appointments-link').onclick = function () {
                 window.location.href = 'ManageAppts.php';
             };
             document.getElementById('logout-link').onclick = function () {
-                window.location.href = 'login.php';
+                window.location.href = 'Login.php';
             };
         </script>
     </body>

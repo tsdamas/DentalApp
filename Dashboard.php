@@ -3,7 +3,7 @@ session_start();
 
 if (empty($_SESSION['username'])) {
 
-	header("Location: login.php");
+	header("Location: Login.php");
 	exit;
 } else {
         //this should never go to prod in a real secenario and could be done in a better and more secure way, 
@@ -77,9 +77,9 @@ if (empty($_SESSION['username'])) {
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-        <a class="nav-link" href="patients.php">Patients</a>
-        <a class="nav-link" href="appoinments.php">Appointments</a>
-        <a class="nav-link" href="login.php">Logout</a>
+        <a class="nav-link" href="Patients.php">Patients</a>
+        <a class="nav-link" href="ManageAppts.php">Appointments</a>
+        <a class="nav-link" href="Login.php">Logout</a>
       </div>
     </div>
   </div>

@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_query($mysqli, $insertPatientQuery)) {
         echo "<script>
                 alert('Patient successfully added!');
-                window.location.href = 'patients.php';
+                window.location.href = 'Patients.php';
               </script>";
     } else {
         echo 'Failure';
@@ -125,13 +125,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 window.location.href = 'Dashboard.php';
             };
             document.getElementById('patients-link').onclick = function () {
-                window.location.href = 'patients.php';
+                window.location.href = 'Patients.php';
             };
             document.getElementById('appointments-link').onclick = function () {
                 window.location.href = 'ManageAppts.php';
             };
             document.getElementById('logout-link').onclick = function () {
-                window.location.href = 'login.php';
+                window.location.href = 'Login.php';
             };
         </script>
     </body>

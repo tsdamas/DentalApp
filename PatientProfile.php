@@ -57,9 +57,9 @@ $result2 = mysqli_query($mysqli, $appointments_query);
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="Dashboard.php">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="patients.php">Patients</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Patients.php">Patients</a></li>
                         <li class="nav-item"><a class="nav-link" href="ManageAppts.php">Appointments</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Login.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
