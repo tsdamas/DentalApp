@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>User Login Form</title>
@@ -9,6 +8,52 @@
         <link rel="stylesheet" href="./stylesheet.css">
 </head>
 <body class="bg-body-tertiary">  
+
+<?php
+
+session_start();
+$credentialsErr = !empty($credentialsErr) ? $credentialsErr : "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $password = "";
+
+    
+    $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
+    
+    $targetname = filter_input(INPUT_POST, 'username');
+    $targetpasswd = filter_input(INPUT_POST, 'password');
+    $sql = "SELECT username, password FROM auth_users WHERE username = '".$targetname.
+        "' AND password = SHA1('".$targetpasswd."')";
+
+    $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
+
+
+    if (mysqli_num_rows($result) == 1) {
+        
+       while ($info = mysqli_fetch_array($result)) {
+		$username = stripslashes($info['username']);
+	}
+        
+        $_SESSION['username'] = $username;
+        
+        setcookie("auth", session_id(), time()+60*30, "/", "", 0);
+        
+        header("Location: dashboard.php");
+
+        exit();
+    } else {
+        $credentialsErr = "Invalid username or password";
+    }
+    
+    
+}
+
+
+
+    
+    
+
+
+?>
         <div class="container-fluid vh-100 d-flex">
             <div class="row w-100 align-items-center">
                 <div class="col-6 p-0 video-container">
@@ -29,17 +74,22 @@
                     </div>
                     <div class="row d-flex" id="login-row">
                     <div class="login-container">                     
-                    <form method="post" action="dashboard.php">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <h3> Login </h3>
                         <br>
                             <label for="validationCustomUsername" class="form-label username-label">Username</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                <input type="text" name="username" pattern="^[A-Za-z\s]{1,15}$" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" name="username" pattern="^[A-Za-z\s]{1,15}$" class="form-control <?php echo !empty($credentialErr) ? 'is-invalid' : ''; ?>" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                          </div>
                         <div class="mb-3">
                             <label for="password-label" class="form-label">Password</label>
-                            <input type="password" name="password" pattern="^[a-z]{3,}$" class="form-control" id="password-login-field" required>
+                            <input type="password" name="password" pattern="^[a-z]{3,15}$" class="form-control <?php echo !empty($credentialErr) ? 'is-invalid' : ''; ?>" id="password-login-field" required>
+                                  <?php if(!empty($credentialsErr)){ ?>
+                                  <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                        <?php echo $credentialsErr;?>
+                                  </div>
+                                  <?php }?>
                         </div>
                         <button type="submit" name="submit" value="login" class="btn btn-primary">Submit</button>
                     </form>
