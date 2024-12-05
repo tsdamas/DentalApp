@@ -13,6 +13,8 @@ $query = "
         L4_Patients p
     ON
         a.Pat_ID = p.ID
+    WHERE
+        a.app_date >= CURDATE()
     ORDER BY
         a.app_date ASC
 ";
