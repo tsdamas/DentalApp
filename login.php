@@ -14,14 +14,13 @@
 session_start();
 $credentialsErr = !empty($credentialsErr) ? $credentialsErr : "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $password = "";
+    $username = $password = $name = "";
 
-    
-    $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
+    //this should never go to prod in real scenario and can be done in a better and more secure way.    $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
     
     $targetname = filter_input(INPUT_POST, 'username');
     $targetpasswd = filter_input(INPUT_POST, 'password');
-    $sql = "SELECT username, password FROM auth_users WHERE username = '".$targetname.
+    $sql = "SELECT f_name, username, password FROM auth_users WHERE username = '".$targetname.
         "' AND password = SHA1('".$targetpasswd."')";
 
     $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
@@ -31,9 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
        while ($info = mysqli_fetch_array($result)) {
 		$username = stripslashes($info['username']);
+                $name = stripslashes($info['f_name']);
 	}
         
         $_SESSION['username'] = $username;
+        $_SESSION['f_name'] = $name;
         
         setcookie("auth", session_id(), time()+60*30, "/", "", 0);
         
@@ -41,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         exit();
     } else {
-        $credentialsErr = "Invalid username or password";
+        $credentialsErr = "<span class='error' >Invalid username or password</span>";
     }
     
     
@@ -85,11 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="mb-3">
                             <label for="password-label" class="form-label">Password</label>
                             <input type="password" name="password" pattern="^[a-z]{3,15}$" class="form-control <?php echo !empty($credentialErr) ? 'is-invalid' : ''; ?>" id="password-login-field" required>
-                                  <?php if(!empty($credentialsErr)){ ?>
-                                  <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                                        <?php echo $credentialsErr;?>
-                                  </div>
-                                  <?php }?>
+                            <?php echo $credentialsErr; ?>
                         </div>
                         <button type="submit" name="submit" value="login" class="btn btn-primary">Submit</button>
                     </form>

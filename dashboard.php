@@ -6,11 +6,14 @@ if (empty($_SESSION['username'])) {
 	header("Location: login.php");
 	exit;
 } else {
-    
-        $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
+        //this should never go to prod in a real secenario and could be done in a better and more secure way, 
+        //like create environment variables on the server
+
+        
+        $name = $_SESSION['f_name'];
         
         //Get number of appointments 
-        $get_number_app = "SELECT COUNT(*) AS Total FROM L4_Appointments WHERE app_date = '2024-11-04'";
+        $get_number_app = "SELECT COUNT(*) AS Total FROM L4_Appointments WHERE app_date = '2024-12-05'";
         
         $number_app_sql = mysqli_query($mysqli, $get_number_app) or die(mysqli_error($mysqli));
         
@@ -21,7 +24,7 @@ if (empty($_SESSION['username'])) {
         }
         
         //Get number of procedures
-        $get_number_proc_sql = "SELECT COUNT(*) AS Total_Pros FROM L4_App_Pros ap, L4_Appointments a WHERE ap.app_id = a.id and app_date = '2024-11-04'";
+        $get_number_proc_sql = "SELECT COUNT(*) AS Total_Pros FROM L4_App_Pros ap, L4_Appointments a WHERE ap.app_id = a.id and app_date = '2024-12-05'";
         $get_number_proc_query = mysqli_query($mysqli, $get_number_proc_sql) or die(mysqli_error($mysqli));
         
         if (mysqli_num_rows($get_number_proc_query) > 0) {
@@ -32,7 +35,7 @@ if (empty($_SESSION['username'])) {
         
         //Get today's appointments
         $get_proc_sql = "SELECT a.id AS id, CONCAT(p.fname, ' ', p.lname) AS patient_name, d.name AS dentist_name, roomNo"
-        . " FROM L4_Appointments a, L4_Dentists d, L4_Patients p WHERE a.pat_id = p.id and a.den_id = d.id and app_date = '2024-11-04'";
+        . " FROM L4_Appointments a, L4_Dentists d, L4_Patients p WHERE a.pat_id = p.id and a.den_id = d.id and app_date = '2024-12-05'";
         
         $get_proc_query = mysqli_query($mysqli, $get_proc_sql) or die(mysqli_error($mysqli));
 
@@ -84,7 +87,7 @@ if (empty($_SESSION['username'])) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-xs-12" id="app-summary">
-                <h5 class="mt-4">Good afternoon, <?php echo "$f_name"; ?>!</h5>
+                <h5 class="mt-4">Good afternoon, <?php echo "$name"; ?>!</h5>
                 <h6 class="text-secondary"><?php echo date('l, F j, Y'); ?> </h6>
             </div>
             
