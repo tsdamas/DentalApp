@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand fs-6" href="dashboard.php">
+                <a class="navbar-brand fs-6" href="Dashboard.php">
                     <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
                     DentalHash
                 </a>

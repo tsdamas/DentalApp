@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $password = $name = "";
 
     //this should never go to prod in real scenario and can be done in a better and more secure way.    $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
-    
+        $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
     $targetname = filter_input(INPUT_POST, 'username');
     $targetpasswd = filter_input(INPUT_POST, 'password');
     $sql = "SELECT f_name, username, password FROM auth_users WHERE username = '".$targetname.
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         setcookie("auth", session_id(), time()+60*30, "/", "", 0);
         
-        header("Location: dashboard.php");
+        header("Location: Dashboard.php");
 
         exit();
     } else {
@@ -89,7 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <?php echo $credentialsErr; ?>
                         </div>
                         <button type="submit" name="submit" value="login" class="btn btn-primary">Submit</button>
+                        <a href="password.php" class=btn btn-danger">Forgot Password?</a>
                     </form>
+                        
                     </div>
                 </div>
             </div>

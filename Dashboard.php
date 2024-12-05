@@ -8,7 +8,7 @@ if (empty($_SESSION['username'])) {
 } else {
         //this should never go to prod in a real secenario and could be done in a better and more secure way, 
         //like create environment variables on the server
-
+            $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
         
         $name = $_SESSION['f_name'];
         
