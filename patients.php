@@ -54,7 +54,7 @@ $totalPatients = mysqli_num_rows($result);
     <div class="container mt-5">
         <h3 class="text-center mb-4">Patients</h3>
         <div class="d-flex justify-content-between mb-3">
-        <a href="AddPatient.php" class="btn btn-success">Add Patient</a>
+        <a href="AddPatient.php" class="btn btn-primary">Add Patient</a>
         <a href="RemovePatient.php" class="btn btn-danger">Remove Patient</a>
     </div>
         <div class="table-responsive">
