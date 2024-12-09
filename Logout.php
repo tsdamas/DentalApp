@@ -2,6 +2,9 @@
 session_start();
 $_SESSION = [];
 session_destroy();
-header("Location: Login.php");
+echo "<script>
+    alert('Successfully logged out!');
+    window.location.href = 'Login.php';
+</script>";
 exit;
 ?>
