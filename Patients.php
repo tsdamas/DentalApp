@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (empty($_SESSION['username'])) {
+    
+    header("Location: Login.php");
+    exit;
+}
 
 
 // Database connection

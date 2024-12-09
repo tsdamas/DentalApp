@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (empty($_SESSION['username'])) {
+    
+    header("Location: Login.php");
+    exit;
+}
+
 $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
 $query = "
     SELECT
