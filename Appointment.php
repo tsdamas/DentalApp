@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 window.location.href = 'ManageAppts.php';
             };
             document.getElementById('logout-link').onclick = function () {
-                window.location.href = 'Login.php';
+                window.location.href = 'Logout.php';
             };
         </script>
     </body>

@@ -107,7 +107,7 @@ $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
                 window.location.href = 'ManageAppts.php';
             };
             document.getElementById('logout-link').onclick = function () {
-                window.location.href = 'Login.php';
+                window.location.href = 'Logout.php';
             };
             function sendReminder() {
                 alert("Appointment Reminder has been sent out.");

@@ -50,7 +50,7 @@ $totalPatients = mysqli_num_rows($result);
                     <li class="nav-item"><a class="nav-link" href="Dashboard.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="Patients.php">Patients</a></li>
                     <li class="nav-item"><a class="nav-link" href="ManageAppts.php">Appointments</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Login.php">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>
