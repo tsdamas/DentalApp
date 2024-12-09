@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (empty($_SESSION['username'])) {
+    
+    header("Location: Login.php");
+    exit;
+}
+
 $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
 $query = "
     SELECT
@@ -55,7 +61,7 @@ $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
             <div class="card shadow-sm">
                 <div class="card-body">
                     
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-light table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>Patient ID</th>

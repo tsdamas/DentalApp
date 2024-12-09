@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (empty($_SESSION['username'])) {
+    
+    header("Location: Login.php");
+    exit;
+}
 
 
 // Database connection
@@ -58,7 +63,7 @@ $totalPatients = mysqli_num_rows($result);
         <a href="RemovePatient.php" class="btn btn-danger">Remove Patient</a>
     </div>
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-light table-striped table-hover">
                 <thead>
                     <tr>
                         <th colspan="6" class="text-end">Total Patients: <?php echo $totalPatients; ?></th>
