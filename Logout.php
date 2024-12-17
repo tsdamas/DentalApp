@@ -2,9 +2,7 @@
 session_start();
 $_SESSION = [];
 session_destroy();
-echo "<script>
-    alert('Successfully logged out!');
-    window.location.href = 'Login.php';
-</script>";
+header("Content-Type: application/json");
+echo json_encode(['status' => 'success', 'message' => 'Successfully logged out!']);
 exit;
 ?>

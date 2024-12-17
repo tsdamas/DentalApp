@@ -96,19 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			</div>
 		</div>
 	</div>
-	<script>
-            document.getElementById('dashboard-link').onclick = function () {
-                window.location.href = 'Dashboard.php';
-            };
-            document.getElementById('patients-link').onclick = function () {
-                window.location.href = 'Patients.php';
-            };
-            document.getElementById('appointments-link').onclick = function () {
-                window.location.href = 'ManageAppts.php';
-            };
-            document.getElementById('logout-link').onclick = function () {
-                window.location.href = 'Logout.php';
-            };
-        </script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="Banner.js"></script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <?php
 session_start();
 if (empty($_SESSION['username'])) {
-    
+
     header("Location: Login.php");
-    exit;
+    exit();
 }
 
 $mysqli = mysqli_connect("localhost", "cs213user", "letmein", "dentalDB");
@@ -39,8 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($mysqli, $findDentistQuery) or die(mysqli_error($mysqli));
     $dentist = mysqli_fetch_assoc($result);
 
-   
-
     $rowCountQuery2 = "SELECT MAX(ID) AS total FROM L4_Appointments";
     $resultRow2 = mysqli_query($mysqli, $rowCountQuery2) or die(mysqli_error($mysqli));
     $rowCountData2 = mysqli_fetch_assoc($resultRow2);
@@ -67,33 +65,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Book Appointment</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body class="bg-light">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container-fluid">
-                <a class="navbar-brand fs-6" href="Dashboard.php">
-                    <img src="./images/dental_logo.png" alt="Logo" width="55" height="55" class="align-text-middle">
-                    DentalHash
-                </a>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" id="dashboard-link" href="#">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" id="patients-link" href="#">Patients</a></li>
-                        <li class="nav-item"><a class="nav-link" id="appointments-link" href="#">Appointments</a></li>
-                        <li class="nav-item"><a class="nav-link" id="logout-link" href="#">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 bg-white p-5 shadow-sm rounded">
-                    <h3 class="text-center mb-4">Book a Patient Appointment</h3>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Appointment</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body class="bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+		<div class="container-fluid">
+			<a class="navbar-brand fs-6" href="Dashboard.php"> <img
+				src="./images/dental_logo.png" alt="Logo" width="55" height="55"
+				class="align-text-middle"> DentalHash
+			</a>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" id="dashboard-link"
+						href="#">Dashboard</a></li>
+					<li class="nav-item"><a class="nav-link" id="patients-link"
+						href="#">Patients</a></li>
+					<li class="nav-item"><a class="nav-link" id="appointments-link"
+						href="#">Appointments</a></li>
+					<li class="nav-item"><a class="nav-link" id="logout-link" href="#">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 bg-white p-5 shadow-sm rounded">
+				<h3 class="text-center mb-4">Book a Patient Appointment</h3>
                     <?php
                     if (isset($successMessage)) {
                         echo "<div class='alert alert-success'>$successMessage</div>";
@@ -105,76 +108,76 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     }
                     ?>
                     <form method="POST" action="">
-                        <div class="row mb-3">
-                            <div class="col">
-                                <label for="first-name" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="first-name" name="first-name"
-                                       placeholder="First Name" maxlength="25" pattern="[A-Za-z]+" title="Please enter letters only." required>
-                            </div>
-                            <div class="col">
-                                <label for="last-name" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="last-name" name="last-name"
-                                       placeholder="Last Name" maxlength="30" pattern="[A-Za-z]+" title="Please enter letters only." required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="dob" class="form-label">Date of Birth</label>
-                            <input type="date" class="form-control" id="dob" name="dob" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="health-number" class="form-label">Health Number</label>
-                            <input type="text" class="form-control" id="health-number" name="health-number"
-                                   placeholder="123-456-789"required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone-number" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone-number" name="phone-number"
-                                   placeholder="(123)-456-7890" maxlength="15"required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Street Number" id="street-number" name="street-number" maxlength="6" required>
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Street Name" id="street-name" name="street-name" maxlength="20" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="City" id="city" name="city" required>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Postal Code" id="postal-code" name="postal-code" required>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Country" id="country" name="country" maxlength="14"required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="appointment-date" class="form-label">Appointment Date</label>
-                            <input type="date" class="form-control" id="appointment-date" name="appointment-date" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <script>
-            document.getElementById('dashboard-link').onclick = function () {
-                window.location.href = 'Dashboard.php';
-            };
-            document.getElementById('patients-link').onclick = function () {
-                window.location.href = 'Patients.php';
-            };
-            document.getElementById('appointments-link').onclick = function () {
-                window.location.href = 'ManageAppts.php';
-            };
-            document.getElementById('logout-link').onclick = function () {
-                window.location.href = 'Logout.php';
-            };
-        </script>
-    </body>
+					<div class="row mb-3">
+						<div class="col">
+							<label for="first-name" class="form-label">First Name</label> <input
+								type="text" class="form-control" id="first-name"
+								name="first-name" placeholder="First Name" maxlength="25"
+								pattern="[A-Za-z]+" title="Please enter letters only." required>
+						</div>
+						<div class="col">
+							<label for="last-name" class="form-label">Last Name</label> <input
+								type="text" class="form-control" id="last-name" name="last-name"
+								placeholder="Last Name" maxlength="30" pattern="[A-Za-z]+"
+								title="Please enter letters only." required>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="dob" class="form-label">Date of Birth</label> <input
+							type="date" class="form-control" id="dob" name="dob" required>
+					</div>
+					<div class="mb-3">
+						<label for="health-number" class="form-label">Health Number</label>
+						<input type="text" class="form-control" id="health-number"
+							name="health-number" placeholder="123-456-789" required>
+					</div>
+					<div class="mb-3">
+						<label for="phone-number" class="form-label">Phone Number</label>
+						<input type="tel" class="form-control" id="phone-number"
+							name="phone-number" placeholder="(123)-456-7890" maxlength="15"
+							required>
+					</div>
+					<div class="mb-3">
+						<label for="address" class="form-label">Address</label>
+						<div class="row">
+							<div class="col">
+								<input type="text" class="form-control"
+									placeholder="Street Number" id="street-number"
+									name="street-number" maxlength="6" required>
+							</div>
+							<div class="col">
+								<input type="text" class="form-control"
+									placeholder="Street Name" id="street-name" name="street-name"
+									maxlength="20" required>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col">
+							<input type="text" class="form-control" placeholder="City"
+								id="city" name="city" required>
+						</div>
+						<div class="col">
+							<input type="text" class="form-control" placeholder="Postal Code"
+								id="postal-code" name="postal-code" required>
+						</div>
+						<div class="col">
+							<input type="text" class="form-control" placeholder="Country"
+								id="country" name="country" maxlength="14" required>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="appointment-date" class="form-label">Appointment Date</label>
+						<input type="date" class="form-control" id="appointment-date"
+							name="appointment-date" required>
+					</div>
+					<button type="submit" class="btn btn-primary w-100">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="Banner.js"></script>
+
+</body>
 </html>
