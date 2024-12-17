@@ -56,25 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	rel="stylesheet">
 </head>
 <body class="bg-light">
-	<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-		<div class="container-fluid">
-			<a class="navbar-brand fs-6" href="Dashboard.php"> <img
-				src="./images/dental_logo.png" alt="Logo" width="55" height="55"
-				class="align-text-middle"> DentalHash
-			</a>
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" id="dashboard-link"
-						href="#">Dashboard</a></li>
-					<li class="nav-item"><a class="nav-link" id="patients-link"
-						href="#">Patients</a></li>
-					<li class="nav-item"><a class="nav-link" id="appointments-link"
-						href="#">Appointments</a></li>
-					<li class="nav-item"><a class="nav-link" id="logout-link" href="#">Logout</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<?php include 'Navbar.php'; ?>
 	<div class="container mt-5">
 		<div class="row justify-content-center">
 			<div class="col-lg-8 bg-white p-5 shadow-sm rounded">

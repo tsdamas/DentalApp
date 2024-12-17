@@ -65,36 +65,13 @@ if (empty($_SESSION['username'])) {
 <link rel="stylesheet" href="./stylesheet.css">
 </head>
 <body class="bg-body-tertiary">
-	<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-		<div class="container-fluid">
-			<a class="navbar-brand fs-6" href="Dashboard.php"> <img
-				src="./images/dental_logo.png" alt="Logo" width="55" height="55"
-				class="align-text-middle"> DentalHash
-			</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-				aria-controls="navbarNavAltMarkup" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="#"
-						id="dashboard-link">Dashboard</a> <a class="nav-link" href="#"
-						id="patients-link">Patients</a> <a class="nav-link" href="#"
-						id="appointments-link">Appointments</a> <a class="nav-link"
-						href="#" id="logout-link">Logout</a>
-				</div>
-			</div>
-		</div>
-	</nav>
+	<?php include 'Navbar.php'; ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-xs-12" id="app-summary">
 				<h5 class="mt-4">Good afternoon, <?php echo "$name"; ?>!</h5>
 				<h6 class="text-secondary"><?php echo date('l, F j, Y'); ?> </h6>
 			</div>
-
 		</div>
 		<div class="row">
 			<div
